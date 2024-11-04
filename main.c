@@ -30,15 +30,15 @@ int main(void) {
         }
         switch (sceltaGiocatore) {
             case 1:
-                sceltaNPC = 5;
+                sceltaGiocatore = 5;
             //carta
                 break;
             case 2:
-                sceltaNPC = 2;
+                sceltaGiocatore = 2;
             //forbici
                 break;
             default:
-                sceltaNPC = 0;
+                sceltaGiocatore = 0;
             // sasso
         }
 
