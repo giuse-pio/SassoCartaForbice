@@ -6,13 +6,14 @@ int main(void) {
     const int min = 0;
     const int max = 2;
     int sceltaNPC, sceltaGiocatore;
-    int vittorieNPC = 0, vittoreGiocatore = 0;
+    int vittorieNPC = 0, vittoreGiocatore = 0, pareggio = 0;
+    srand(time(NULL));
     printf("inserisci |0| per indicare -Sasso- "
         "|5| per indicare -Carta- "
         "|2| per indicare -Forbici-:\n");
     printf("per smettere di giocare digita |-1|\n");
     do {
-        srand(time(NULL));
+
         sceltaNPC = rand() % (max - min + 1) + min;
         switch (sceltaNPC) {
             case 1:
@@ -57,11 +58,11 @@ int main(void) {
         } else if (sceltaGiocatore == 0 && sceltaNPC == 5) {
             printf("hai perso! \n");
             printf("la mossa era %d\n", sceltaNPC);
-            vittoreGiocatore++;
+            vittorieNPC++;
         } else if (sceltaGiocatore == 0 && sceltaNPC == 0) {
             printf("pareggio! \n");
             printf("la mossa era %d\n", sceltaNPC);
-            vittoreGiocatore++;
+            pareggio++;
         } else if (sceltaGiocatore == 2 && sceltaNPC == 5) {
             printf("hai vinto! \n");
             printf("la mossa era %d\n", sceltaNPC);
@@ -69,11 +70,11 @@ int main(void) {
         } else if (sceltaGiocatore == 2 && sceltaNPC == 0) {
             printf("hai perso! \n");
             printf("la mossa era %d\n", sceltaNPC);
-            vittoreGiocatore++;
+            vittorieNPC++;
         } else if (sceltaGiocatore == 2 && sceltaNPC == 2) {
             printf("pareggio! \n");
             printf("la mossa era %d\n", sceltaNPC);
-            vittoreGiocatore++;
+            pareggio++;
         } else if (sceltaGiocatore == 5 && sceltaNPC == 0) {
             printf("hai vinto! \n");
             printf("la mossa era %d\n", sceltaNPC);
@@ -81,13 +82,14 @@ int main(void) {
         } else if (sceltaGiocatore == 5 && sceltaNPC == 5) {
             printf("pareggio! \n");
             printf("la mossa era %d\n", sceltaNPC);
-            vittoreGiocatore++;
+            pareggio++;
         } else if (sceltaGiocatore == 5 && sceltaNPC == 2) {
-            printf("hai vinto! \n");
+            printf("hai perso! \n");
             printf("la mossa era %d\n", sceltaNPC);
-            vittoreGiocatore++;
+            vittorieNPC++;
         }
     } while (sceltaGiocatore != -1);
     printf("il giocatore ha vinto %d volte\n", vittoreGiocatore);
     printf("il computer ha vinto %d volte\n", vittorieNPC);
+    printf("numero di pareggi %d volte\n", pareggio);
 }
